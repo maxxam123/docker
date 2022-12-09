@@ -16,6 +16,6 @@ jobs:
     - uses: actions/checkout@v3
     - name: Build the Docker image
       run: |
-        docker login - u "hennighausen" -p "Gummersbach123#"
+        echo "${{ secrets.DOCKERPW }}" | docker login - u "hennighausen" --password-stdin
         docker image build -t hennighausen/charls:v1 .
         docker push hennighausen/charls:v1
