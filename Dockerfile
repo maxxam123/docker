@@ -4,7 +4,7 @@ RUN mkdir /app
 
 WORKDIR /app
 
-COPY req.tex req.txt
+COPY req.txt req.txt
 
 RUN pip install -r req.txt
 
