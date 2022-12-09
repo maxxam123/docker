@@ -2,9 +2,15 @@ name: Docker Image CI
 
 on:
   push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
+    branches:
+      - master
+      - development
+  workflow_dispatch:
+    inputs:
+      name:
+        description: 'test'
+        default: 'v2'
+        required: true
 
 jobs:
 
@@ -17,5 +23,5 @@ jobs:
     - name: Build the Docker image
       run: |
         echo "${{ secrets.DOCKERPW }}" | docker login -u "hennighausen" --password-stdin
-        docker image build -t hennighausen/charls:v1 .
-        docker push hennighausen/charls:v1
+        docker image build -t hennighausen/charls:${{ github.event.inputs.name }} .
+        docker push hennighausen/charls:${{ github.event.inputs.name }}
