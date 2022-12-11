@@ -52,5 +52,5 @@ jobs:
           
       - name: Trigger the Workflow
         run: |
-          git clone https://github.com/maxxam123/k8s-charls
+          git clone https://github.com/maxxam123/k8s_charls
           ls -la
