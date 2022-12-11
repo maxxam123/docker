@@ -44,6 +44,10 @@ jobs:
           ls -la
           mv k8s_charls/folder2/neues1 neues1
           echo ${{github.run_number}} > neues
+          sed -i '19d' neues1
+          var = ${{ github.run_number }}
+          awk -i inplace 'NR==19{print "        image:nginx: v"}1' neues1
+          sed -i 19"s/$/$var &/" neues1
           cd ../..
           
       - name: Pushes to another repository
