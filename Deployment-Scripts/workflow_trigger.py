@@ -1,15 +1,28 @@
-
 import os
 import requests
 import sys
 
+<<<<<<< HEAD
+# TOKEN= str(sys.argv[1])
+# OWNER= str(sys.argv[2])
+# REPO= str(sys.argv[3])
+# Workflow_Name= str(sys.argv[4])
+# pl_Baseline_Number= str(sys.argv[5])
+# pl_Baseline_Revision = str(sys.argv[6])
+TOKEN= "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"
+OWNER= "sumitraj0103"
+REPO= "Letsdevops"
+Workflow_Name= "Workflow2"
+pl_Baseline_Number="sdfds"
+pl_Baseline_Revision = "ffz"
+=======
 TOKEN= str(sys.argv[1])
 OWNER= str(sys.argv[2])
 REPO= str(sys.argv[3])
 Workflow_Name= str(sys.argv[4])
 pl_Baseline_Number= str(sys.argv[5])
 pl_Baseline_Revision = str(sys.argv[6])
-
+>>>>>>> 751944b1a6e004d054332975b0e13f2a246194a1
 
 print( "the toke value is")
 def trigger_workflow(Workflow_Name,pl_Baseline_Number,pl_Baseline_Revision):
