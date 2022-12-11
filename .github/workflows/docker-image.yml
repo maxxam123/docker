@@ -15,12 +15,12 @@ on:
       workflow2_github_account:
         description: 'GitHub Account Owner'
         required: true
-        default: 'sumitraj0103'
+        default: 'maxxam123'
       
       workflow2_repo_github:
         description: 'GitHub Repository Name'
         required: true
-        default: 'Letsdevops'
+        default: 'k8s_charls'
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -29,9 +29,9 @@ jobs:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
     env: 
-      pat_token: ${{ secrets.Workflow2_PAT_TOKEN_GITHUB }}
-      payload_Baseline_Number: "BSL_001"
-      payload_Baseline_Revision: "zsfdgsdbgngffdwdx1dxvv2"
+      pat_token: ${{ secrets.Workflow2_ACCESS }}
+      payload_Baseline_Number: ${{ github.run_number }}
+      payload_Baseline_Revision: ${{ github.run_number }}
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
