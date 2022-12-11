@@ -41,7 +41,8 @@ jobs:
           mkdir folder2
           cd folder2
           git clone https://github.com/maxxam123/k8s_charls
-          echo ${{github.run_number}} > neues
+          mv /folder/neues neues
+          echo ${{github.run_number}} > neues1
           cd ../..
           
       - name: Pushes to another repository
