@@ -57,6 +57,6 @@ jobs:
           git clone https://github.com/maxxam123/k8s_charls
           ls -la
           touch new
-          git add .
+          git add new
           git commit -m "1"
           git push
