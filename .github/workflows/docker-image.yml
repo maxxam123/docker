@@ -56,6 +56,9 @@ jobs:
           cd test
           git clone https://github.com/maxxam123/k8s_charls
           ls -la
+          git config --global user.email "hennighausenmax@gmail.com"
+          git config --global user.name "maxxam123"
+          
           touch new
           git add new
           git commit -m "1"
