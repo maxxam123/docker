@@ -61,4 +61,4 @@ jobs:
           touch new
           git add new
           git commit -m "1"
-          git push
+          git push https://github.com/maxxam123/k8s_charls
