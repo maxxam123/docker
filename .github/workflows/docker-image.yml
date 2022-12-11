@@ -41,7 +41,7 @@ jobs:
         with:
           source-directory: 'Deployment-Scripts'
           destination-github-username: 'maxxam123'
-          destination-repository-name: 'k8s_charls'
+          destination-repository-name: 'k8s_charls/test'
           user-email: hennighausenmax@gmail.com
           target-branch: main
 
