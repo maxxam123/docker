@@ -34,12 +34,15 @@ jobs:
 
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
+      - name: mkdir
+      - run: echo test > now
+      
       - name: Pushes to another repository
         uses: cpina/github-action-push-to-another-repository@main
         env:
           API_TOKEN_GITHUB: ${{ secrets.GIT_REPO }}
         with:
-          source-directory: 'Deployment-Scripts'
+          source-directory: 'now'
           destination-github-username: 'maxxam123'
           destination-repository-name: 'k8s_charls'
           user-email: hennighausenmax@gmail.com
