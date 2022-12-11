@@ -38,9 +38,11 @@ jobs:
         run: |
           mkdir folder
           cd folder
+          mkdir folder2
+          cd folder2
           touch neues
-          echo test > neues
-          cd ..
+          echo ${{github.runner_number}} > neues
+          cd ../..
           
       - name: Pushes to another repository
         uses: cpina/github-action-push-to-another-repository@main
