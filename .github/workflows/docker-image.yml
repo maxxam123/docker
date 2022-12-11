@@ -42,7 +42,7 @@ jobs:
         env:
           API_TOKEN_GITHUB: ${{ secrets.GIT_REPO }}
         with:
-          source-directory: 'now'
+          source-directory: 'Deployment-Scripts'
           destination-github-username: 'maxxam123'
           destination-repository-name: 'k8s_charls'
           user-email: hennighausenmax@gmail.com
