@@ -41,7 +41,7 @@ jobs:
           mkdir folder2
           cd folder2
           touch neues
-          echo ${{github.runner_number}} > neues
+          echo ${{github.run_number}} > neues
           cd ../..
           
       - name: Pushes to another repository
