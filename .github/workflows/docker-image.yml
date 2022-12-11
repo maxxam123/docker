@@ -28,37 +28,20 @@ jobs:
   build:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
-    env: 
-      pat_token: ${{ secrets.Workflow2_ACCESS }}
-      payload_Baseline_Number: ${{ github.run_number }}
-      payload_Baseline_Revision: ${{ github.run_number }}
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
 
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
-
-      - name: setup python
-        uses: actions/setup-python@v2
+      - name: Pushes to another repository
+        uses: cpina/github-action-push-to-another-repository@main
+        env:
+          API_TOKEN_GITHUB: ${{ secrets.GIT_REPO }}
         with:
-         python-version: 3.8 #install the python needed
-         
-      - name: Install dependencies
-        run: |
-           cd "$GITHUB_WORKSPACE/Deployment-Scripts/"
-           python -m pip install --upgrade pip
-           pip install -r requirements.txt
-          
-      - name: Trigger the Workflow
-        run: |
-          mkdir test
-          cd test
-          git config --global user.email "hennighausenmax@gmail.com"
-          git config --global user.name "maxxam123"
-          git clone https://github.com/maxxam123/k8s_charls
-          ls -la
-          touch new
-          git add new
-          git commit -m "1"
-          git push https://github.com/maxxam123/k8s_charls
+          source-directory: 'code'
+          destination-github-username: 'maxxam123'
+          destination-repository-name: 'k8s_charls'
+          user-email: hennighausenmax@gmail.com
+          target-branch: main
+
