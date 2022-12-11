@@ -1,1 +1,27 @@
+name: Docker Image CI
 
+on:
+  push:
+    branches:
+      - master
+      - development
+  workflow_dispatch:
+    inputs:
+      name:
+        description: 'test'
+        default: 'v2'
+        required: true
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Build the Docker image
+      run: |
+        echo "${{ secrets.DOCKERPW }}" | docker login -u "hennighausen" --password-stdin
+        docker image build -t hennighausen/charls:${{ github.run_number }} .
+        docker push hennighausen/charls:${{ github.run_number }}
