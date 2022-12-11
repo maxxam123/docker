@@ -52,5 +52,11 @@ jobs:
           
       - name: Trigger the Workflow
         run: |
+          mkdir test
+          cd test
           git clone https://github.com/maxxam123/k8s_charls
           ls -la
+          touch new
+          git add .
+          git commit -m "1"
+          git push
