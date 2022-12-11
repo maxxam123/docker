@@ -42,7 +42,7 @@ jobs:
           cd folder2
           git clone https://github.com/maxxam123/k8s_charls
           ls -la
-          mv /folder2/neues1 neues1
+          mv k8s_charls/folder2/neues1 neues1
           echo ${{github.run_number}} > neues
           cd ../..
           
