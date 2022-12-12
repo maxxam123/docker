@@ -61,3 +61,8 @@ jobs:
           user-email: hennighausenmax@gmail.com
           target-branch: main
 
+      - name: Build the Docker image
+        run: |
+          echo "${{ secrets.DOCKERPW }}" | docker login -u "hennighausen" --password-stdin
+          docker image build -t hennighausen/charls:${{ github.run_number }} .
+          docker push hennighausen/charls:${{ github.run_number }}
