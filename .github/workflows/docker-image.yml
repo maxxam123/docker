@@ -42,12 +42,14 @@ jobs:
           cd folder2
           git clone https://github.com/maxxam123/k8s_charls
           ls -la
-          mv k8s_charls/folder2/neues1 neues1
+          mv k8s_charls/folder2/deployment.yaml deployment.yaml
+          mv k8s_charls/folder2/service.yaml service.yaml
+          mv k8s_charls/folder2/ingress.yaml ingress.yaml
           echo ${{github.run_number}} > neues
-          sed -i '19d' neues1
+          sed -i '19d' deployment.yaml
           var=${{ github.run_number }}
-          awk -i inplace 'NR==19{print "        image: nginx:v"}1' neues1
-          sed -i 19"s/$/$var &/" neues1
+          awk -i inplace 'NR==19{print "        image: nginx:v"}1' deployment.yaml
+          sed -i 19"s/$/$var &/" deployment.yaml
           cd ../..
           
       - name: Pushes to another repository
